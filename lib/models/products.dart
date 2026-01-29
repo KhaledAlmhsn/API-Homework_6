@@ -45,13 +45,9 @@ class Products {
       json["id"],
       json["thumbnail"],
       json["description"],
-      // Safe conversion for price
       (json["price"] as num?)?.toDouble(),
-      // Safe conversion for rating
       (json["rating"] as num?)?.toDouble(),
-      // Safe conversion for discountPercentage
       (json["discountPercentage"] as num?)?.toDouble(),
-      // Your calculation also needs num casting to avoid crashes
       ((json["price"] as num? ?? 0) /
               (1.0 - ((json["discountPercentage"] as num? ?? 0) / 100)))
           .toDouble(),
